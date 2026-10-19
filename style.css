@@ -1,0 +1,11 @@
+.lst { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; }
+.it { display: flex; align-items: center; gap: 6px; background: var(--field); border: 1px solid var(--line); border-radius: 12px; padding: 4px 4px 4px 10px; }
+.it input { flex: 1 1 auto; width: auto !important; min-width: 0 !important; background: transparent !important; border-color: transparent !important; padding: 6px 6px !important; }
+.it input:focus { border-color: var(--accent) !important; background: var(--panel) !important; }
+.it .num { width: 64px !important; text-align: center; flex: none; }
+@media (max-width: 520px) { .it .ib[data-mv] { display: none; } .it .num { width: 52px !important; } }
+.it .unit { color: var(--muted); font-size: .8rem; flex: none; }
+.it.over { border-color: color-mix(in srgb, var(--bad) 55%, transparent); background: color-mix(in srgb, var(--bad) 8%, var(--field)); }
+.it.over .nr { color: var(--bad); }
+.it .nr { color: var(--muted); font-size: .8rem; width: 18px; text-align: right; flex: none; }
+.chk { width: 18px; height: 18px; accent-color: var(--accent); flex: none; }

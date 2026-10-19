@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sprint Planner</title>
+<meta name="description" content="Plan je Scrum-sprint: bereken de capaciteit van je team op basis van beschikbaarheid en velocity, en zie meteen of de sprint-backlog past.">
+<meta property="og:title" content="Sprint Planner">
+<meta property="og:description" content="Plan je Scrum-sprint: bereken de capaciteit van je team op basis van beschikbaarheid en velocity, en zie meteen of de sprint-backlog past.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' rx='7' fill='%2303a9f4'/%3E%3Crect x='9' y='10' width='14' height='3' rx='1.5' fill='%23fff'/%3E%3Crect x='9' y='15' width='10' height='3' rx='1.5' fill='%23fff' opacity='.7'/%3E%3Crect x='9' y='20' width='12' height='3' rx='1.5' fill='%23fff' opacity='.5'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
+<link rel="stylesheet" href="base.css?v=1">
+<link rel="stylesheet" href="style.css?v=1">
+
+<script defer src="https://analytics.uselesssite.nl/script.js" data-website-id="c8741679-5df2-4679-9527-39cc9edc25c0"></script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="./"><span class="logo"><i class="mdi mdi-run-fast"></i></span>
+    <div><b>Sprint Planner</b><small>Capaciteit en backlog voor je sprint</small></div></a>
+  <nav>
+    <button type="button" class="ib" id="theme" title="Licht / donker"><i class="mdi mdi-theme-light-dark"></i></button>
+    <a href="https://uselesssite.nl/tools/" class="ghost"><i class="mdi mdi-view-grid-outline"></i> <span>Alle tools</span></a>
+    <a href="https://github.com/Rein033/sprint-planner" class="ghost"><i class="mdi mdi-github"></i> <span>GitHub</span></a>
+    <a href="https://buymeacoffee.com/rein033" class="coffee" target="_blank" rel="noopener"><i class="mdi mdi-coffee"></i> <span>Koffie</span></a>
+  </nav>
+</header>
+
+<main>
+<div class="cols">
+  <div>
+    <div class="panel">
+      <div class="tile-head"><div class="tile-ic"><i class="mdi mdi-flag-checkered"></i></div><div class="tile-txt"><b>Sprint</b><small>Doel, duur en tempo</small></div></div>
+      <div class="form">
+        <div class="fld wide"><label>Sprintdoel</label><input id="doel" placeholder="bijv. Klanten kunnen zelf hun factuur downloaden"></div>
+        <div class="fld"><label>Sprintnaam / nummer</label><input id="naam" placeholder="bijv. Sprint 14"></div>
+        <div class="fld"><label>Startdatum</label><input id="start" type="date"></div>
+        <div class="fld"><label>Duur: <b id="duurv"></b></label><input id="duur" type="range" min="1" max="4"></div>
+        <div class="fld"><label>Velocity (punten per volle sprint): <b id="velv"></b></label><input id="vel" type="range" min="5" max="150" step="1"></div>
+        <div class="fld"><label>Focusfactor: <b id="focv"></b></label><input id="foc" type="range" min="50" max="100" step="5"></div>
+      </div>
+      <p class="hint">Velocity = het gemiddelde aantal punten dat jullie in een sprint met het hele team afronden. De focusfactor houdt rekening met overleg, support en verrassingen.</p>
+    </div>
+    <div class="panel">
+      <div class="tile-head"><div class="tile-ic"><i class="mdi mdi-account-group"></i></div><div class="tile-txt"><b>Team</b><small id="teamsub"></small></div></div>
+      <div id="team" class="lst"></div>
+      <button type="button" class="add" id="addlid" style="margin-top:8px"><i class="mdi mdi-plus"></i> Teamlid</button>
+    </div>
+  </div>
+  <div>
+    <div class="panel">
+      <div class="tile-head"><div class="tile-ic" id="capic"><i class="mdi mdi-gauge"></i></div><div class="tile-txt"><b id="captitel">Capaciteit</b><small id="capsub"></small></div></div>
+      <div class="stats" id="stats"></div>
+      <div class="bar" style="margin-top:12px"><i id="bar"></i></div>
+    </div>
+    <div class="panel">
+      <div class="tile-head"><div class="tile-ic"><i class="mdi mdi-format-list-checks"></i></div><div class="tile-txt"><b>Sprint-backlog</b><small>Bovenaan = belangrijkst. Wat niet meer past wordt rood.</small></div></div>
+      <div id="backlog" class="lst"></div>
+      <button type="button" class="add" id="additem" style="margin-top:8px"><i class="mdi mdi-plus"></i> Item</button>
+    </div>
+    <div class="panel">
+      <div class="btns"><button type="button" class="main" id="copytxt"><i class="mdi mdi-content-copy"></i> Kopieer samenvatting</button>
+        <button type="button" class="small" id="copymd"><i class="mdi mdi-language-markdown"></i> Als Markdown</button>
+        <button type="button" class="small" id="nieuw"><i class="mdi mdi-restart"></i> Nieuwe sprint</button></div>
+    </div>
+  </div>
+</div>
+</main>
+
+<footer>
+  Gratis en open source · Gemaakt door <a href="https://github.com/Rein033">Rein033</a> · Alles gebeurt in je browser, er gaat niets naar een server ·
+  <a href="https://uselesssite.nl/tools/">Meer tools</a>
+</footer>
+<script src="base.js?v=1"></script>
+<script src="app.js?v=1"></script>
+</body>
+</html>
